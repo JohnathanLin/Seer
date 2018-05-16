@@ -1,0 +1,38 @@
+.article-title{
+	margin-top:50px;
+	text-align: center;
+	font-size:24px;
+	font-weight: bold;
+}
+.article-message{
+	text-align: center;
+	margin-top:20px;
+}
+.comment-item{
+	display:block;
+	width:100%;
+	min-height:100px;
+	padding-bottom: 20px;;
+	clear: both;
+}
+
+.comment-item .comment-user{
+	width:100px;
+	float:left;
+}
+.comment-item .comment-content{
+	width: 630px;
+
+	padding:0px 10px 0px 10px;
+	float:left;
+}
+
+.comment-item .comment-content .comment-content-message{
+	color:#999999;
+	font-size:14px;
+	padding-bottom: 5px;;
+}
+.comment-item .comment-content .comment-content-message .comment-floor{
+	float: right;
+	margin-right:20px;
+}
