@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="seer-project:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="seer.war">
+      <element id="artifact" artifact-name="seer-project:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -34,7 +34,11 @@
 .account-details span {
     display: block;
 }
-
+.people-edit-message{
+	float: right;
+	font-size: 14px;
+	line-height: 34px;
+}
 .people-message{
     display: block;
     width: 100%;
@@ -68,6 +72,22 @@
 .article-title-limit{
 	display: inline-block;
   width: 700px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.article-like-title-limit{
+	display: inline-block;
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.article-time{
+	text-align: right;
+	float: right;
+	display: inline-block;
+  width: 150px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

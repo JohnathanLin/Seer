@@ -36,3 +36,11 @@
 	float: right;
 	margin-right:20px;
 }
+
+.not-logged-in-message{
+	text-align: center;
+	height:128px;
+	line-height: 128px;
+	font-size: 14px;
+	color:#8e8d8d;
+}
