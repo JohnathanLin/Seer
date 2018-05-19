@@ -3,8 +3,10 @@
 <mapper namespace="com.windypath.seer.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.windypath.seer.pojo.User">
     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="mobile" jdbcType="VARCHAR" property="mobile" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
@@ -42,7 +44,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, password, mobile, status, gender, level, createDate, signature
+    id, username, name, password, email, mobile, status, gender, level, createDate, signature
   </sql>
   <select id="selectByExample" parameterType="com.windypath.seer.pojo.UserExample" resultMap="BaseResultMap">
     select
@@ -70,21 +72,29 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.User" useGeneratedKeys="true">
-    insert into user (name, password, mobile, 
-      status, gender, level, 
-      createDate, signature)
-    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{gender,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{signature,jdbcType=VARCHAR})
+    insert into user (username, name, password, 
+      email, mobile, status, 
+      gender, level, createDate, 
+      signature)
+    values (#{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{gender,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{signature,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.User" useGeneratedKeys="true">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
       <if test="name != null">
         name,
       </if>
       <if test="password != null">
         password,
+      </if>
+      <if test="email != null">
+        email,
       </if>
       <if test="mobile != null">
         mobile,
@@ -106,11 +116,17 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="mobile != null">
         #{mobile,jdbcType=VARCHAR},
@@ -135,11 +151,17 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.windypath.seer.pojo.User">
     update user
     <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="mobile != null">
         mobile = #{mobile,jdbcType=VARCHAR},
@@ -164,8 +186,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.windypath.seer.pojo.User">
     update user
-    set name = #{name,jdbcType=VARCHAR},
+    set username = #{username,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       gender = #{gender,jdbcType=INTEGER},
