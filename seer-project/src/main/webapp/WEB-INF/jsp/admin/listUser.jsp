@@ -101,7 +101,17 @@
 					<td>${u.mobile}</td>
 					<td>${u.email}</td>
 					<td>${u.gender}</td>
-					<td>${u.status}</td>
+					<td><c:choose>
+						<c:when test="${u.status == 0}">
+							待验证
+						</c:when>
+						<c:when test="${u.status == 1}">
+							已验证
+						</c:when>
+						<c:when test="${u.status == 2}">
+							已冻结
+						</c:when>
+					</c:choose></td>
 						<td>${u.level}</td>
 					<td><a href="javascript:;" onclick="resetPwd(${u.id},'${u.name}')">重置密码</a></td>
 				</tr>

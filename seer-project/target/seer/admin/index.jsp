@@ -3,5 +3,5 @@
 <!-- 供购买者学习，请勿私自传播，否则自行承担相关法律责任-->
 
 <%
-    response.sendRedirect("../admin_category_list");
+    response.sendRedirect("../admin/index");
 %>

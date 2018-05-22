@@ -7,6 +7,7 @@
     <result column="aid" jdbcType="INTEGER" property="aid" />
     <result column="floor" jdbcType="INTEGER" property="floor" />
     <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="isDeleted" jdbcType="INTEGER" property="isDeleted" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.windypath.seer.pojo.Comments">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
@@ -41,7 +42,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, uid, aid, floor, createDate
+    id, uid, aid, floor, createDate, isDeleted
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -92,9 +93,11 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Comments" useGeneratedKeys="true">
     insert into comments (uid, aid, floor, 
-      createDate, content)
+      createDate, isDeleted, content
+      )
     values (#{uid,jdbcType=INTEGER}, #{aid,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR})
+      #{createDate,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Comments" useGeneratedKeys="true">
     insert into comments
@@ -110,6 +113,9 @@
       </if>
       <if test="createDate != null">
         createDate,
+      </if>
+      <if test="isDeleted != null">
+        isDeleted,
       </if>
       <if test="content != null">
         content,
@@ -127,6 +133,9 @@
       </if>
       <if test="createDate != null">
         #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         #{content,jdbcType=LONGVARCHAR},
@@ -148,6 +157,9 @@
       <if test="createDate != null">
         createDate = #{createDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="isDeleted != null">
+        isDeleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
@@ -160,6 +172,7 @@
       aid = #{aid,jdbcType=INTEGER},
       floor = #{floor,jdbcType=INTEGER},
       createDate = #{createDate,jdbcType=TIMESTAMP},
+      isDeleted = #{isDeleted,jdbcType=INTEGER},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -168,7 +181,8 @@
     set uid = #{uid,jdbcType=INTEGER},
       aid = #{aid,jdbcType=INTEGER},
       floor = #{floor,jdbcType=INTEGER},
-      createDate = #{createDate,jdbcType=TIMESTAMP}
+      createDate = #{createDate,jdbcType=TIMESTAMP},
+      isDeleted = #{isDeleted,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

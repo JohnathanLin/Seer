@@ -21,11 +21,22 @@ public class Article {
 
     private Date verifyDate;
 
-    private String content;
+    private Integer isDeleted;
 
+    private String content;
+    public User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
     public Integer getId() {
         return id;
     }
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -93,6 +104,14 @@ public class Article {
 
     public void setVerifyDate(Date verifyDate) {
         this.verifyDate = verifyDate;
+    }
+
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     public String getContent() {

@@ -16,7 +16,6 @@
      	    var newPwd = $('#newPwd').val();
      	    var checkNewPwd = $('#checkNewPwd').val();
      	    if(newPwd === checkNewPwd){
-                console.log("密码相等");
                 $.ajax({
 					url:"admin_user_password_update",
 					data:{
@@ -24,7 +23,6 @@
                         newPwd:newPwd
 					},
 					dataType:'json',
-
 					type:'post',
 					success:function(data){
 
@@ -49,20 +47,15 @@
                         console.log(textStatus);
                         $('#resetPwdModal').modal('hide');
                     }
-
 				});
 			}else{
      	        alert("两次输入的密码不相同！");
 			}
-     	    //console.log(newPwd + " "+ checkNewPwd);
-
         });
         $('#resetPwdModal').on('show.bs.modal', function (event) {
             $("#resetUser").text(name);
-         //   console.log("展示中...");
         });
         $('#resetPwdModal').on('hide.bs.modal', function (event) {
-            console.log("我有咋做啊");
             id=-1;
             $('#newPwd').val("");
             $('#checkNewPwd').val("");
@@ -71,11 +64,7 @@
     });
     function resetPwd(userID,name){
         id = userID;
-     //   console.log(" userID:"+userID);
-     //   console.log(" name:"+name);
-
-
-        $('#resetPwdModal').modal('show');
+		$('#resetPwdModal').modal('show');
 	}
 </script>
 
@@ -112,7 +101,17 @@
 					<td>${u.mobile}</td>
 					<td>${u.email}</td>
 					<td>${u.gender}</td>
-					<td>${u.status}</td>
+					<td><c:choose>
+						<c:when test="${u.status == 0}">
+							待验证
+						</c:when>
+						<c:when test="${u.status == 1}">
+							已验证
+						</c:when>
+						<c:when test="${u.status == 2}">
+							已冻结
+						</c:when>
+					</c:choose></td>
 						<td>${u.level}</td>
 					<td><a href="javascript:;" onclick="resetPwd(${u.id},'${u.name}')">重置密码</a></td>
 				</tr>

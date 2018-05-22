@@ -25,6 +25,8 @@ public class User {
 
     private String signature;
 
+    private Integer isDeleted;
+
     public Integer getId() {
         return id;
     }
@@ -111,5 +113,13 @@ public class User {
 
     public void setSignature(String signature) {
         this.signature = signature == null ? null : signature.trim();
+    }
+
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
     }
 }

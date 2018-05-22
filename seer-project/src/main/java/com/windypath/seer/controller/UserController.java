@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("admin/")
 public class UserController {
     @Autowired
     UserService userService;
@@ -38,7 +38,7 @@ public class UserController {
     @RequestMapping(value="/admin_user_password_update", method= RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> resetPwd(int userID, String newPwd){
-        System.out.println("dafsadsf");
+    //    System.out.println("dafsadsf");
         Map<String,Object> resultMap = new HashMap<String,Object>();
         User user = userService.get(userID);
         user.setPassword(newPwd);
@@ -48,4 +48,6 @@ public class UserController {
     //    System.out.println("userID: "+userID + "newPwd : "+newPwd);
         return resultMap;
     }
+
+
 }

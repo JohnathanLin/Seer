@@ -13,6 +13,8 @@ public class Comments {
 
     private Date createDate;
 
+    private Integer isDeleted;
+
     private String content;
 
     public Integer getId() {
@@ -53,6 +55,14 @@ public class Comments {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     public String getContent() {

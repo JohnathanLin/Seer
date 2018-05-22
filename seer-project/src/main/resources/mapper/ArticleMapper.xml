@@ -11,6 +11,7 @@
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
     <result column="verifyDate" jdbcType="TIMESTAMP" property="verifyDate" />
+    <result column="isDeleted" jdbcType="INTEGER" property="isDeleted" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.windypath.seer.pojo.Article">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
@@ -45,7 +46,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, uid, title, likeNum, collectNum, commentNum, status, createDate, verifyDate
+    id, uid, title, likeNum, collectNum, commentNum, status, createDate, verifyDate, 
+    isDeleted
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -97,12 +99,12 @@
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Article" useGeneratedKeys="true">
     insert into article (uid, title, likeNum, 
       collectNum, commentNum, status, 
-      createDate, verifyDate, content
-      )
+      createDate, verifyDate, isDeleted, 
+      content)
     values (#{uid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{likeNum,jdbcType=INTEGER}, 
       #{collectNum,jdbcType=INTEGER}, #{commentNum,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{verifyDate,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}
-      )
+      #{createDate,jdbcType=TIMESTAMP}, #{verifyDate,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER}, 
+      #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Article" useGeneratedKeys="true">
     insert into article
@@ -130,6 +132,9 @@
       </if>
       <if test="verifyDate != null">
         verifyDate,
+      </if>
+      <if test="isDeleted != null">
+        isDeleted,
       </if>
       <if test="content != null">
         content,
@@ -159,6 +164,9 @@
       </if>
       <if test="verifyDate != null">
         #{verifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         #{content,jdbcType=LONGVARCHAR},
@@ -192,6 +200,9 @@
       <if test="verifyDate != null">
         verifyDate = #{verifyDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="isDeleted != null">
+        isDeleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
@@ -208,6 +219,7 @@
       status = #{status,jdbcType=INTEGER},
       createDate = #{createDate,jdbcType=TIMESTAMP},
       verifyDate = #{verifyDate,jdbcType=TIMESTAMP},
+      isDeleted = #{isDeleted,jdbcType=INTEGER},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -220,7 +232,8 @@
       commentNum = #{commentNum,jdbcType=INTEGER},
       status = #{status,jdbcType=INTEGER},
       createDate = #{createDate,jdbcType=TIMESTAMP},
-      verifyDate = #{verifyDate,jdbcType=TIMESTAMP}
+      verifyDate = #{verifyDate,jdbcType=TIMESTAMP},
+      isDeleted = #{isDeleted,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -13,6 +13,7 @@
     <result column="level" jdbcType="INTEGER" property="level" />
     <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
     <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="isDeleted" jdbcType="INTEGER" property="isDeleted" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -44,7 +45,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, name, password, email, mobile, status, gender, level, createDate, signature
+    id, username, name, password, email, mobile, status, gender, level, createDate, signature, 
+    isDeleted
   </sql>
   <select id="selectByExample" parameterType="com.windypath.seer.pojo.UserExample" resultMap="BaseResultMap">
     select
@@ -75,11 +77,11 @@
     insert into user (username, name, password, 
       email, mobile, status, 
       gender, level, createDate, 
-      signature)
+      signature, isDeleted)
     values (#{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{gender,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
-      #{signature,jdbcType=VARCHAR})
+      #{signature,jdbcType=VARCHAR}, #{isDeleted,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.User" useGeneratedKeys="true">
     insert into user
@@ -114,6 +116,9 @@
       <if test="signature != null">
         signature,
       </if>
+      <if test="isDeleted != null">
+        isDeleted,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="username != null">
@@ -145,6 +150,9 @@
       </if>
       <if test="signature != null">
         #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -181,6 +189,9 @@
       <if test="signature != null">
         signature = #{signature,jdbcType=VARCHAR},
       </if>
+      <if test="isDeleted != null">
+        isDeleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -195,7 +206,8 @@
       gender = #{gender,jdbcType=INTEGER},
       level = #{level,jdbcType=INTEGER},
       createDate = #{createDate,jdbcType=TIMESTAMP},
-      signature = #{signature,jdbcType=VARCHAR}
+      signature = #{signature,jdbcType=VARCHAR},
+      isDeleted = #{isDeleted,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
