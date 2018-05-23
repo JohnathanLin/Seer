@@ -20,12 +20,12 @@ public class AdminController {
         return "admin/login";
     }
     @RequestMapping("/loginVerify")
-    public String login(HttpServletRequest request, HttpServletResponse response){
+    public String login(HttpServletRequest request, HttpServletResponse response,HttpSession session){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
+        session.setAttribute("username",username);
         System.out.println(username + " "+ password);
-        /*
+
         Admin res = adminService.checkUserAndPwd(username,password);
 
         if(res != null){
@@ -33,9 +33,11 @@ public class AdminController {
         }else{
             return "redirect:index";
         }
-         */
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
         return "redirect:index";
-
-
     }
 }

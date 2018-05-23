@@ -10,7 +10,7 @@
     <div class="panel panel-warning editDiv">
         <div class="panel-heading">后台登录</div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" action="loginAdmin" method="post">
+            <form class="form-horizontal" role="form" action="loginVerify" method="post">
                 <div class="form-group">
                     <label for="username" class="col-sm-3 control-label">用户名</label>
                     <div class="col-sm-9">

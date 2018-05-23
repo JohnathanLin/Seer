@@ -13,5 +13,7 @@
 		<a class="navbar-brand" href="admin_article_list">预言管理</a>
 		<a class="navbar-brand" href="admin_user_list">用户管理</a>
 
+		<a class="navbar-text" href="logout" style="float:right;">退出登录</a>
+		<div class="navbar-text" style="float:right;">${sessionScope.username}</div>
 	</nav>
 </div>
