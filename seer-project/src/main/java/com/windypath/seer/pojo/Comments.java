@@ -11,11 +11,20 @@ public class Comments {
 
     private Integer floor;
 
+    private String content;
+
     private Date createDate;
 
     private Integer isDeleted;
+    private User user;
 
-    private String content;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getId() {
         return id;
@@ -49,6 +58,14 @@ public class Comments {
         this.floor = floor;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
@@ -63,13 +80,5 @@ public class Comments {
 
     public void setIsDeleted(Integer isDeleted) {
         this.isDeleted = isDeleted;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
     }
 }

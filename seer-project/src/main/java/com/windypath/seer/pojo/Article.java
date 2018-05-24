@@ -5,6 +5,8 @@ import java.util.Date;
 public class Article {
     private Integer id;
 
+    private Integer cid;
+
     private Integer uid;
 
     private String title;
@@ -24,6 +26,22 @@ public class Article {
     private Integer isDeleted;
 
     private String content;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
+    }
     public User user;
 
     public User getUser() {
@@ -32,14 +50,6 @@ public class Article {
 
     public void setUser(User user) {
         this.user = user;
-    }
-    public Integer getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getUid() {

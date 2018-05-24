@@ -6,11 +6,9 @@
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="aid" jdbcType="INTEGER" property="aid" />
     <result column="floor" jdbcType="INTEGER" property="floor" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
     <result column="isDeleted" jdbcType="INTEGER" property="isDeleted" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.windypath.seer.pojo.Comments">
-    <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -42,28 +40,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, uid, aid, floor, createDate, isDeleted
+    id, uid, aid, floor, content, createDate, isDeleted
   </sql>
-  <sql id="Blob_Column_List">
-    content
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.windypath.seer.pojo.CommentsExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    'false' as QUERYID,
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from comments
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" parameterType="com.windypath.seer.pojo.CommentsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -79,11 +57,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from comments
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -93,10 +69,10 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Comments" useGeneratedKeys="true">
     insert into comments (uid, aid, floor, 
-      createDate, isDeleted, content
+      content, createDate, isDeleted
       )
     values (#{uid,jdbcType=INTEGER}, #{aid,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      #{content,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Comments" useGeneratedKeys="true">
@@ -111,14 +87,14 @@
       <if test="floor != null">
         floor,
       </if>
+      <if test="content != null">
+        content,
+      </if>
       <if test="createDate != null">
         createDate,
       </if>
       <if test="isDeleted != null">
         isDeleted,
-      </if>
-      <if test="content != null">
-        content,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -131,14 +107,14 @@
       <if test="floor != null">
         #{floor,jdbcType=INTEGER},
       </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
       <if test="createDate != null">
         #{createDate,jdbcType=TIMESTAMP},
       </if>
       <if test="isDeleted != null">
         #{isDeleted,jdbcType=INTEGER},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -154,26 +130,16 @@
       <if test="floor != null">
         floor = #{floor,jdbcType=INTEGER},
       </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
       <if test="createDate != null">
         createDate = #{createDate,jdbcType=TIMESTAMP},
       </if>
       <if test="isDeleted != null">
         isDeleted = #{isDeleted,jdbcType=INTEGER},
       </if>
-      <if test="content != null">
-        content = #{content,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.windypath.seer.pojo.Comments">
-    update comments
-    set uid = #{uid,jdbcType=INTEGER},
-      aid = #{aid,jdbcType=INTEGER},
-      floor = #{floor,jdbcType=INTEGER},
-      createDate = #{createDate,jdbcType=TIMESTAMP},
-      isDeleted = #{isDeleted,jdbcType=INTEGER},
-      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.windypath.seer.pojo.Comments">
@@ -181,6 +147,7 @@
     set uid = #{uid,jdbcType=INTEGER},
       aid = #{aid,jdbcType=INTEGER},
       floor = #{floor,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
       createDate = #{createDate,jdbcType=TIMESTAMP},
       isDeleted = #{isDeleted,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

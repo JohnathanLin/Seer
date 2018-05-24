@@ -29,8 +29,10 @@
                 <th>预言状态</th>
                 <th>发布日期</th>
                 <th>验证日期</th>
+                <th>查看评论</th>
                 <th>编辑预言</th>
                 <th>删除文章</th>
+
             </tr>
             </thead>
             <tbody>
@@ -68,11 +70,15 @@
                         </c:choose>
                     </td>
                     <td>
+                        <a href="admin_comments_list?aid=${a.id}" >查看评论</a>
+                    </td>
+                    <td>
                         <a href="admin_article_edit?id=${a.id}">编辑文章</a>
                     </td>
                     <td>
                         <a deleteLink="true" href="admin_article_delete?id=${a.id}">删除文章</a>
                     </td>
+
                 </tr>
             </c:forEach>
             </tbody>

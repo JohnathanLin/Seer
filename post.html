@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>预言 - 发布文章</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/common.css" /> 
+			<link rel="stylesheet" href="css/people.css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-default my-navbar-style" >
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">预言</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li ><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+		        <li><a href="list.html">预言列表</a></li>
+		       
+		      </ul>
+		     
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="javascript:;"data-toggle="modal" data-target="#loginModal">登录</a></li>
+		        <li><a href="#">注册</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="container  bgWhite pdbt-30">
+			<div class="col-md-8">
+				<h3 class="page-header">发布预言</h3>
+				
+				<div class="form-group">
+				
+				  <input type="text" class="form-control" placeholder="请输入预言标题" >
+				</div>
+				
+				<div class="form-group">
+					<div id="articleEditor"></div>
+				</div>
+				
+				<button class="btn btn-success">
+					发布
+				</button>
+				
+        
+			</div>
+			<div class="col-md-4">
+				<div class="account-container pt20">
+					<div class="account-avatar">
+						<img src="img/seer.png" class="thumbnail" />
+					</div>
+					<div class="account-details">
+						<span class="account-name">乔纳森先生</span>
+						<span class="account-role">新手预言家</span>
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-md-4 NumberBoard">
+						<div class="NumberBoard-itemNumber">15</div><br />
+						<div class="NumberBoard-itemName">预言</div>
+					</div>
+					<div class="col-md-4 NumberBoard">
+						<div class="NumberBoard-itemNumber">12</div><br />
+						<div class="NumberBoard-itemName">实现</div>
+					</div>
+					<div class="col-md-4 NumberBoard">
+						<div class="NumberBoard-itemNumber">80%</div><br />
+						<div class="NumberBoard-itemName">成功</div>
+					</div>
+	
+				</div>
+				<hr />
+			</div>
+			
+		</div>
+		<footer class="footer container bgWhite">
+            <p>&copy; Copyright 2018 预言家的网站</p>
+        </footer>
+         <script src="js/wangEditor.min.js"></script>
+       <script>
+        	
+var editor2 = new  window.wangEditor('#articleEditor')
+editor2.create()
+        </script>
+	</body>
+</html>

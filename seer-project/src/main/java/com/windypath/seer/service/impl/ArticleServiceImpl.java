@@ -53,7 +53,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<Article> list() {
         ArticleExample example = new ArticleExample();
-        example.setOrderByClause("id desc");
+        example.setOrderByClause("id asc");
         example.createCriteria().andIsDeletedEqualTo(0);
         List result = articleMapper.selectByExample(example);
         setUser(result);

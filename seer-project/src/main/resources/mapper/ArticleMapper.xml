@@ -3,6 +3,7 @@
 <mapper namespace="com.windypath.seer.mapper.ArticleMapper">
   <resultMap id="BaseResultMap" type="com.windypath.seer.pojo.Article">
     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="likeNum" jdbcType="INTEGER" property="likeNum" />
@@ -46,7 +47,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, uid, title, likeNum, collectNum, commentNum, status, createDate, verifyDate, 
+    id, cid, uid, title, likeNum, collectNum, commentNum, status, createDate, verifyDate, 
     isDeleted
   </sql>
   <sql id="Blob_Column_List">
@@ -97,18 +98,21 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Article" useGeneratedKeys="true">
-    insert into article (uid, title, likeNum, 
-      collectNum, commentNum, status, 
-      createDate, verifyDate, isDeleted, 
-      content)
-    values (#{uid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{likeNum,jdbcType=INTEGER}, 
-      #{collectNum,jdbcType=INTEGER}, #{commentNum,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{verifyDate,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER}, 
-      #{content,jdbcType=LONGVARCHAR})
+    insert into article (cid, uid, title, 
+      likeNum, collectNum, commentNum, 
+      status, createDate, verifyDate, 
+      isDeleted, content)
+    values (#{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{likeNum,jdbcType=INTEGER}, #{collectNum,jdbcType=INTEGER}, #{commentNum,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{verifyDate,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.windypath.seer.pojo.Article" useGeneratedKeys="true">
     insert into article
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
       <if test="uid != null">
         uid,
       </if>
@@ -141,6 +145,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
       <if test="uid != null">
         #{uid,jdbcType=INTEGER},
       </if>
@@ -176,6 +183,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.windypath.seer.pojo.Article">
     update article
     <set>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
       <if test="uid != null">
         uid = #{uid,jdbcType=INTEGER},
       </if>
@@ -211,7 +221,8 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.windypath.seer.pojo.Article">
     update article
-    set uid = #{uid,jdbcType=INTEGER},
+    set cid = #{cid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
       likeNum = #{likeNum,jdbcType=INTEGER},
       collectNum = #{collectNum,jdbcType=INTEGER},
@@ -225,7 +236,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.windypath.seer.pojo.Article">
     update article
-    set uid = #{uid,jdbcType=INTEGER},
+    set cid = #{cid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
       likeNum = #{likeNum,jdbcType=INTEGER},
       collectNum = #{collectNum,jdbcType=INTEGER},
