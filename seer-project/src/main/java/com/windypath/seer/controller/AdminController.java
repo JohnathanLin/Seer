@@ -1,6 +1,7 @@
 package com.windypath.seer.controller;
 
 import com.windypath.seer.pojo.Admin;
+import com.windypath.seer.pojo.User;
 import com.windypath.seer.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,14 @@ public class AdminController {
     public String login(HttpServletRequest request, HttpServletResponse response,HttpSession session){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        session.setAttribute("username",username);
+    //    session.setAttribute("username",username);
+
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        session.setAttribute("user",user);
+
+
         session.setMaxInactiveInterval(30*60);
 
         Admin res = adminService.checkUserAndPwd(username,password);

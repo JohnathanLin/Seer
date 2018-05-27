@@ -22,6 +22,7 @@
             <tr class="success">
                 <th>ID</th>
                 <th>发布者</th>
+                <th>分类</th>
                 <th>预言标题</th>
                 <th>赞数</th>
                 <th>收藏数</th>
@@ -40,6 +41,7 @@
                 <tr>
                     <td>${a.id}</td>
                     <td>${a.user.name}</td>
+                    <td>${a.category.name}</td>
                     <td>${a.title}</td>
                     <td>${a.likeNum}</td>
                     <td>${a.collectNum}</td>

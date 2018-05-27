@@ -25,7 +25,7 @@ public class CommentsController {
         List<Comments> cs = commentsService.list(aid);
         model.addAttribute("cs",cs);
         model.addAttribute("a",a);
-        System.out.println(cs.toString());
+      //  System.out.println(cs.toString());
         return "admin/listComments";
     }
 

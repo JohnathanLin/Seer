@@ -1,38 +1,101 @@
-<!-- 模仿天猫整站ssm 教程 为how2j.cn 版权所有-->
-<!-- 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关-->
-<!-- 供购买者学习，请勿私自传播，否则自行承担相关法律责任-->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8" isELIgnored="false"%>
+         pageEncoding="UTF-8" isELIgnored="false"%>
+<nav class="navbar navbar-default my-navbar-style" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">预言</a>
+        </div>
 
-<nav class="top ">
-	<a href="${contextPath}">
-		<span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-home redColor"></span>
-		天猫首页
-	</a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="./index"  target="_blank">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="list.html" 	>预言列表</a></li>
+                <li><a href="list.html" 	>分类大全</a></li>
+            </ul>
 
-	<span>喵，欢迎来天猫</span>
-
-	<c:if test="${!empty user}">
-		<a href="loginPage">${user.name}</a>
-		<a href="forelogout">退出</a>
-	</c:if>
-
-	<c:if test="${empty user}">
-		<a href="loginPage">请登录</a>
-		<a href="registerPage">免费注册</a>
-	</c:if>
-
-
-	<span class="pull-right">
-			<a href="forebought">我的订单</a>
-			<a href="forecart">
-			<span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-shopping-cart redColor"></span>
-			购物车<strong>${cartTotalItemNumber}</strong>件</a>
-		</span>
-
-
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:;"data-toggle="modal" data-target="#loginModal">登录</a></li>
+                <li><a href="javascript:;"data-toggle="modal" data-target="#registerModal">注册</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 
 
+<!--登录 Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">用户登录</h4>
+            </div>
+            <div class="modal-body">
 
+                <div class="form-group">
+                    <input type="tel" class="form-control" id="loginMobile" placeholder="请输入手机号码">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="loginPassword" placeholder="输入密码">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="loginBtn">登录</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--注册 Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >用户注册</h4>
+            </div>
+            <div class="modal-body " >
+
+                <div class="form-group "style="height:34px;">
+                    <div class=" col-xs-9">
+                        <input type="tel" class="form-control" id="regMobile" placeholder="请输入手机号码">
+                    </div>
+                    <div class="col-xs-3">
+                        <button class="btn btn-success" style="width:100%;">获取验证码</button>
+                    </div>
+                </div>
+                <div class="form-group "style="height:34px;">
+                    <div class=" col-xs-12">
+                        <input type="number" class="form-control" id="verifyCode" placeholder="输入手机验证码">
+                    </div>
+                </div>
+                <div class="form-group "style="height:34px;">
+                    <div class=" col-xs-12">
+                        <input type="password" class="form-control" id="regPassword" placeholder="设置您账号的密码">
+                    </div>
+                </div>
+                <div class="form-group "style="height:34px;">
+                    <div class=" col-xs-12">
+                        <input type="password" class="form-control" id="regPasswordCheck" placeholder="再次输入密码">
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="regBtn">注册</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+            </div>
+        </div>
+    </div>
+</div>

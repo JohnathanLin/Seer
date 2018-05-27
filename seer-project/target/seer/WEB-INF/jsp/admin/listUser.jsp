@@ -72,10 +72,10 @@
 
 
 <div class="workingArea">
-	<h1 class="label label-info" >用户管理</h1>
-
-	<br>
-	<br>
+	<ol class="breadcrumb">
+		<li><a href="admin_category_list">所有分类</a></li>
+		<li class="active">用户管理</li>
+	</ol>
 
 	<div class="listDataTableDiv">
 		<table class="table table-striped table-bordered table-hover  table-condensed">

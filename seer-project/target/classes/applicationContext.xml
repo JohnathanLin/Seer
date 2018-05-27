@@ -74,7 +74,7 @@
         <!-- 多个拦截器，顺序执行 -->
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
-            <bean class="com.windypath.seer.util.interceptor.LoginInterceptor"></bean>
+            <bean class="com.windypath.seer.util.interceptor.AdminLoginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>

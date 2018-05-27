@@ -77,9 +77,6 @@
 		<li class="active">用户管理</li>
 	</ol>
 
-	<br>
-	<br>
-
 	<div class="listDataTableDiv">
 		<table class="table table-striped table-bordered table-hover  table-condensed">
 			<thead>

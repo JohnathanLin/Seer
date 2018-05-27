@@ -5,7 +5,7 @@
 <%@include file="../include/admin/adminHeader.jsp"%>
 <%@include file="../include/admin/adminNavigator.jsp"%>
 
-<title>预言管理</title>
+<title>评论管理</title>
 
 <div class="workingArea">
     <ol class="breadcrumb">

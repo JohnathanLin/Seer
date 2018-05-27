@@ -43,6 +43,16 @@ public class Article {
         this.cid = cid;
     }
     public User user;
+    public Category category;
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Category getCategory() {
+
+        return category;
+    }
 
     public User getUser() {
         return user;
