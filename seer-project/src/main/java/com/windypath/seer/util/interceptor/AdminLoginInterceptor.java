@@ -1,5 +1,6 @@
 package com.windypath.seer.util.interceptor;
 
+import com.windypath.seer.pojo.Admin;
 import com.windypath.seer.pojo.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,8 +37,8 @@ public class AdminLoginInterceptor implements HandlerInterceptor{
         return false;
         */
 
-        User user = (User) session.getAttribute("user");
-        if(user != null){
+        Admin admin = (Admin) session.getAttribute("admin");
+        if(admin != null){
             return true;
         }
         response.sendRedirect("login");

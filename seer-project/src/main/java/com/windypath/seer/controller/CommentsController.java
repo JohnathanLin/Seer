@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@RequestMapping("admin/")
+@RequestMapping("")
 @Controller
 public class CommentsController {
     @Autowired
     CommentsService commentsService;
     @Autowired
     ArticleService articleService;
-    @RequestMapping("admin_comments_list")
+    @RequestMapping("admin/admin_comments_list")
     public String list(int aid,Model model,Page page){
         Article a = articleService.get(aid);
         List<Comments> cs = commentsService.list(aid);
@@ -29,7 +29,7 @@ public class CommentsController {
         return "admin/listComments";
     }
 
-    @RequestMapping("admin_comments_delete")
+    @RequestMapping("admin/admin_comments_delete")
     public String delete(int id){
         Comments c = commentsService.get(id);
         int aid = c.getAid();

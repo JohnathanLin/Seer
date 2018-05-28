@@ -12,17 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("admin/")
+@RequestMapping("")
 public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("admin_user_list")
+    @RequestMapping("admin/admin_user_list")
     public String list(Model model, Page page){
         PageHelper.offsetPage(page.getStart(),page.getCount());
         List<User> us = userService.list();
@@ -35,7 +36,7 @@ public class UserController {
         return "admin/listUser";
     }
 
-    @RequestMapping(value="/admin_user_password_update", method= RequestMethod.POST)
+    @RequestMapping(value="admin/admin_user_password_update", method= RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> resetPwd(int userID, String newPwd){
     //    System.out.println("dafsadsf");
@@ -47,6 +48,28 @@ public class UserController {
         resultMap.put("resultMsg","修改密码成功");
     //    System.out.println("userID: "+userID + "newPwd : "+newPwd);
         return resultMap;
+    }
+
+    @RequestMapping(value="/register",method = RequestMethod.POST)
+    @ResponseBody
+    public String register(String mobile,String password){
+        if(userService.isExist(mobile)){
+            return "EXIST";
+        }
+        User user = new User();
+        user.setMobile(mobile);
+        user.setPassword(password);
+        user.setUsername(mobile);
+        user.setName(mobile);
+        user.setGender(2);
+        user.setCreateDate(new Date());
+        user.setLevel(1);
+        user.setSignature("");
+        user.setEmail("");
+        user.setStatus(0);
+        user.setIsDeleted(0);
+        userService.add(user);
+        return "SUCCESS";
     }
 
 

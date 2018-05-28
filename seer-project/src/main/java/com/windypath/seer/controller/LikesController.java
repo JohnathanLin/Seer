@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("admin/")
+@RequestMapping("")
 public class LikesController {
     @Autowired
     LikesService likesService;

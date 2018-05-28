@@ -20,26 +20,26 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("admin/")
+@RequestMapping("")
 public class ArticleController {
     @Autowired
     UserService userService;
     @Autowired
     ArticleService articleService;
 
-    @RequestMapping("admin_article_add")
+    @RequestMapping("admin/admin_article_add")
     public String add(Model model,Article a){
         a.setCreateDate(new Date());
         articleService.add(a);
         return "redirect:admin_article_list";
     }
 
-    @RequestMapping("admin_article_delete")
+    @RequestMapping("admin/admin_article_delete")
     public String delete(int id){
         articleService.delete(id);
         return "redirect:admin_article_list";
     }
-    @RequestMapping("admin_article_list")
+    @RequestMapping("admin/admin_article_list")
     public String list(Model model, Page page){
         PageHelper.offsetPage(page.getStart(),page.getCount());
         List<Article> as = articleService.list();
@@ -49,13 +49,13 @@ public class ArticleController {
         model.addAttribute("page",page);
         return "admin/listArticle";
     }
-    @RequestMapping("admin_article_edit")
+    @RequestMapping("admin/admin_article_edit")
     public String edit(Model model,int id){
         Article a = articleService.get(id);
         model.addAttribute("a",a);
         return "admin/editArticle";
     }
-    @RequestMapping(value="admin_article_update", method= RequestMethod.POST)
+    @RequestMapping(value="admin/admin_article_update", method= RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> update(int id, String title, String content,int status){
         Map<String,Object> resultMap = new HashMap<String,Object>();

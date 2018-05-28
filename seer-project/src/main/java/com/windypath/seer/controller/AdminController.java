@@ -1,11 +1,12 @@
 package com.windypath.seer.controller;
 
 import com.windypath.seer.pojo.Admin;
-import com.windypath.seer.pojo.User;
 import com.windypath.seer.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -21,26 +22,28 @@ public class AdminController {
     public String index(){
         return "admin/login";
     }
-    @RequestMapping("/loginVerify")
+    @RequestMapping(value="/loginVerify",method = RequestMethod.POST)
+    @ResponseBody
     public String login(HttpServletRequest request, HttpServletResponse response,HttpSession session){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
     //    session.setAttribute("username",username);
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        session.setAttribute("user",user);
-
-
-        session.setMaxInactiveInterval(30*60);
+        Admin admin = new Admin();
+        admin.setUsername(username);
+        admin.setPassword(password);
 
         Admin res = adminService.checkUserAndPwd(username,password);
 
         if(res != null){
-            return "redirect:admin_article_list";
+            session.setAttribute("admin",admin);
+
+
+            session.setMaxInactiveInterval(30*60);
+
+            return "SUCCESS";
         }else{
-            return "redirect:index";
+            return "redirect:login";
         }
     }
 

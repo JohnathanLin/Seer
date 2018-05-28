@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("admin/")
+@RequestMapping("")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
-    @RequestMapping(value = "admin_category_add",method = RequestMethod.POST)
+    @RequestMapping(value = "admin/admin_category_add",method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> add(String newName){
         Map<String,Object> resultMap = new HashMap<>();
@@ -30,14 +30,14 @@ public class CategoryController {
         return resultMap;
     }
 
-    @RequestMapping("admin_category_list")
+    @RequestMapping("admin/admin_category_list")
     public String list(Model model){
         List<Category> cs = categoryService.list();
         model.addAttribute("cs",cs);
         return "admin/listCategory";
     }
 
-    @RequestMapping(value="admin_category_update",method= RequestMethod.POST)
+    @RequestMapping(value="admin/admin_category_update",method= RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> update(int id, String name){
         Map<String,Object> resultMap = new HashMap<>();
@@ -49,7 +49,7 @@ public class CategoryController {
         resultMap.put("resultMsg","修改分类名称成功");
         return resultMap;
     }
-    @RequestMapping("admin_category_delete")
+    @RequestMapping("admin/admin_category_delete")
     public String delete(int id){
         categoryService.delete(id);
         return "redirect:admin_category_list";

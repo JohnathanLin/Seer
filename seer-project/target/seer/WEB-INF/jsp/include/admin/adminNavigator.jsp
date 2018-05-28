@@ -17,6 +17,6 @@
 		<!--
 		<div class="navbar-text" style="float:right;">${sessionScope.username}</div>
 		-->
-		<div class="navbar-text" style="float:right;">${sessionScope.user.username}</div>
+		<div class="navbar-text" style="float:right;">${sessionScope.admin.username}</div>
 	</nav>
 </div>

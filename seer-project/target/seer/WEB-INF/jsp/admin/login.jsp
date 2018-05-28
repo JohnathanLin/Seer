@@ -25,11 +25,41 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">登录</button>
+                        <button type="submit" id="loginBtn" class="btn btn-default">登录</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        $('#loginBtn').on('click',function (event){
+            event.preventDefault();
+            var username = $('#username').val();
+            var password = $('#password').val();
+            $.ajax({
+                url:'loginVerify',
+                data:{
+                    username:username,
+                    password:password
+                },
+                dataType:'text',
+                type:'post',
+                success:function(data){
+                    if(data == "SUCCESS"){
+                    //    alert('成功！');
+                        document.location ='./admin_article_list';
+                    }else{
+                        alert("登录失败，请检查用户名和密码");
+                        $('#username').val('');
+                        $('#password').val('');
+                    }
+                }
+            })
+        }
+
+        )
+    })
+</script>
 <%@include file="../include/admin/adminFooter.jsp"%>

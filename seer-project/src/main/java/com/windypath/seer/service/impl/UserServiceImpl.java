@@ -20,6 +20,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean isExist(String mobile) {
+        UserExample example =new UserExample();
+        example.createCriteria().andMobileEqualTo(mobile);
+        List<User> result= userMapper.selectByExample(example);
+        if(!result.isEmpty())
+            return true;
+        return false;
+    }
+
+    @Override
     public void delete(int id) {
         userMapper.deleteByPrimaryKey(id);
     }
