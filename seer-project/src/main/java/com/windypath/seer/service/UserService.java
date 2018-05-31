@@ -12,4 +12,5 @@ public interface UserService {
     User get(int id);
     List<User> list();
     boolean isExist(String mobile);
+    User checkMobileAndPwd(String mobile,String password);
 }

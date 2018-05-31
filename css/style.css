@@ -121,43 +121,43 @@ body{
 }
 
 .navbar-default .navbar-brand {
-  color: rgb(225,107,140);
+  color: rgb(119,66,141);
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #fcdddd;
 }
 .navbar-default .navbar-text {
-  color: rgb(225,107,140);
+  color: rgb(119,66,141);
 }
 .navbar-default .navbar-nav > li > a {
-  color: rgb(225,107,140);
+  color: rgb(119,66,141);
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: rgb(240,150,140);
+  color:rgb(229, 140, 240)
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #fcdddd;
-  background-color:rgb(225,107,140);
+  color:/* #fcdddd*/#f8f8f8;
+  background-color:rgb(119,66,141);
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   color: #fcdddd;
-  background-color: rgb(225,107,140);
+  background-color: rgb(119,66,141);
 }
 .navbar-default .navbar-toggle {
-  border-color: rgb(225,107,140);
+  border-color: rgb(119,66,141);
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: rgb(225,107,140);
+  background-color: rgb(119,66,141);
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: rgb(225,107,140);
+  background-color: rgb(119,66,141);
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
@@ -194,7 +194,7 @@ a{
 	color:inherit;
 }
 a:hover,a:active{
-	color:rgb(225,107,140);
+	color:rgb(119,66,141);
 	text-decoration: none;
 }
 p{
@@ -243,7 +243,7 @@ p{
 .cherry-jumbotron{
 	width:100%;
 	margin-bottom: 20px;
-	background: rgb(204,95,125);
+	background: rgb(119,66,141);
 }
 .jumbotron-icon{
 	font-size:80px;
@@ -263,7 +263,7 @@ p{
 }
 
 .font-cherry{
-	color:rgb(225,107,140);
+	color:rgb(119,66,141);
 }	
 
 /*padding*/
@@ -275,7 +275,7 @@ p{
 /*nav*/
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     color: #fff;
-    background-color:  rgb(225,107,140);
+    background-color:  rgb(119,66,141);
 }
 
 /*短的，没有内容预览的预言*/

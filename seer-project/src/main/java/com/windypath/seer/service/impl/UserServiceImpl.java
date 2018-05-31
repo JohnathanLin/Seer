@@ -50,4 +50,16 @@ public class UserServiceImpl implements UserService {
         example.setOrderByClause("id desc");
         return userMapper.selectByExample(example);
     }
+
+    @Override
+    public User checkMobileAndPwd(String mobile, String password) {
+        UserExample example = new UserExample();
+        example.createCriteria().andMobileEqualTo(mobile).andPasswordEqualTo(password);
+        List<User> res = userMapper.selectByExample(example);
+        if(res.size() != 0){
+            return res.get(0);
+        }else{
+            return null;
+        }
+    }
 }

@@ -22,21 +22,18 @@ public class AdminController {
     public String index(){
         return "admin/login";
     }
-    @RequestMapping(value="/loginVerify",method = RequestMethod.POST)
+    @RequestMapping(value="/login",method = RequestMethod.POST)
     @ResponseBody
     public String login(HttpServletRequest request, HttpServletResponse response,HttpSession session){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
     //    session.setAttribute("username",username);
 
-        Admin admin = new Admin();
-        admin.setUsername(username);
-        admin.setPassword(password);
 
         Admin res = adminService.checkUserAndPwd(username,password);
 
         if(res != null){
-            session.setAttribute("admin",admin);
+            session.setAttribute("admin",res);
 
 
             session.setMaxInactiveInterval(30*60);

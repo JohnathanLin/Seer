@@ -11,7 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import sun.misc.Request;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -72,5 +76,26 @@ public class UserController {
         return "SUCCESS";
     }
 
+    @RequestMapping(value="/login",method = RequestMethod.POST)
+    @ResponseBody
+    public String login(HttpServletRequest request, HttpServletResponse response, HttpSession session){
+        String mobile = request.getParameter("mobile");
+        String password = request.getParameter("password");
+        User user = userService.checkMobileAndPwd(mobile,password);
+        if(user != null){
+            session.setAttribute("user",user);
+
+
+            session.setMaxInactiveInterval(30*60);
+            return "SUCCESS";
+        }else{
+            return "ERROR";
+        }
+    }
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:index";
+    }
 
 }

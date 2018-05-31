@@ -76,5 +76,9 @@
             <mvc:mapping path="/admin/**"/>
             <bean class="com.windypath.seer.util.interceptor.AdminLoginInterceptor"></bean>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.windypath.seer.util.interceptor.UserLoginInterceptor"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>

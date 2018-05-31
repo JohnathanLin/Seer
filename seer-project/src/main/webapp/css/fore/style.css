@@ -1,39 +1,39 @@
 /*people.css*/
 .account-container {
-    display: table;
+	display: table;
 }
 .account-avatar {
-    padding-right: 1em;
+	padding-right: 1em;
 }
 .account-avatar img {
-    width: 80px;
-    height: 80px;
+	width: 80px;
+	height: 80px;
 }
 .account-avatar, .account-details {
-    display: table-cell;
-    vertical-align: top;
+	display: table-cell;
+	vertical-align: top;
 }
 .account-details .account-name {
-    font-size: 22px;
-    font-weight: 600;
+	font-size: 22px;
+	font-weight: 600;
 }
 .account-details .account-role {
 	font-size: 16px;
-    color: #888;
+	color: #888;
 }
 .account-details span {
-    display: block;
+	display: block;
 }
 .account-details span {
-    display: block;
+	display: block;
 }
 .account-details .account-actions {
-    color: #BBB;
+	color: #BBB;
 }
 
 
 .account-details span {
-    display: block;
+	display: block;
 }
 .people-edit-message{
 	float: right;
@@ -41,14 +41,14 @@
 	line-height: 34px;
 }
 .people-message{
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #555;
-    background-color: #fff;
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #555;
+	background-color: #fff;
 }
 .height-full{
 	min-height:600px;
@@ -65,40 +65,40 @@
 }
 .NumberBoard-itemName{
 	font-size:14px;
-	
+
 }
 .article-block{
 	height:400px;
 }
 .article-title-limit{
 	display: inline-block;
-  width: 700px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+	width: 700px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .article-like-title-limit{
 	display: inline-block;
-  width: 500px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+	width: 500px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .article-time{
 	text-align: right;
 	float: right;
 	display: inline-block;
-  width: 150px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+	width: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 /*people.css finish*/
 
 /*list.css*/
 .commend{
-	
+
 }
 .comment-img{
 	text-align: center;
@@ -121,69 +121,69 @@ body{
 }
 
 .navbar-default .navbar-brand {
-  color: rgb(225,107,140);
+	color: rgb(119,66,141);
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #fcdddd;
+	color: #fcdddd;
 }
 .navbar-default .navbar-text {
-  color: rgb(225,107,140);
+	color: rgb(119,66,141);
 }
 .navbar-default .navbar-nav > li > a {
-  color: rgb(225,107,140);
+	color: rgb(119,66,141);
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: rgb(240,150,140);
+	color:rgb(229, 140, 240)
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #fcdddd;
-  background-color:rgb(225,107,140);
+	color:/* #fcdddd*/#f8f8f8;
+	background-color:rgb(119,66,141);
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  color: #fcdddd;
-  background-color: rgb(225,107,140);
+	color: #fcdddd;
+	background-color: rgb(119,66,141);
 }
 .navbar-default .navbar-toggle {
-  border-color: rgb(225,107,140);
+	border-color: rgb(119,66,141);
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: rgb(225,107,140);
+	background-color: rgb(119,66,141);
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: rgb(225,107,140);
+	background-color: rgb(119,66,141);
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #ff553d;
+	border-color: #ff553d;
 }
 .navbar-default .navbar-link {
-  color: #ff553d;
+	color: #ff553d;
 }
 .navbar-default .navbar-link:hover {
-  color: #fcdddd;
+	color: #fcdddd;
 }
 
 @media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #ff553d;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #fcdddd;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #fcdddd;
-    background-color: rgb(208,90,110);
-  }
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #ff553d;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #fcdddd;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #fcdddd;
+		background-color: rgb(208,90,110);
+	}
 }
 /*我自己的导航条*/
 .my-navbar-style{
@@ -194,7 +194,7 @@ a{
 	color:inherit;
 }
 a:hover,a:active{
-	color:rgb(225,107,140);
+	color:rgb(119,66,141);
 	text-decoration: none;
 }
 p{
@@ -204,7 +204,7 @@ p{
 	text-align: center;
 	font-size:16px;
 	display:block;
-	
+
 }
 
 .hot-link{
@@ -235,7 +235,7 @@ p{
 }
 
 /*清除浮动*/
-.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0} 
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
 .clearfloat{zoom:1}
 
 /*jumbotron条	*/
@@ -243,7 +243,7 @@ p{
 .cherry-jumbotron{
 	width:100%;
 	margin-bottom: 20px;
-	background: rgb(204,95,125);
+	background: rgb(119,66,141);
 }
 .jumbotron-icon{
 	font-size:80px;
@@ -263,8 +263,8 @@ p{
 }
 
 .font-cherry{
-	color:rgb(225,107,140);
-}	
+	color:rgb(119,66,141);
+}
 
 /*padding*/
 .pt20{
@@ -274,14 +274,14 @@ p{
 
 /*nav*/
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-    color: #fff;
-    background-color:  rgb(225,107,140);
+	color: #fff;
+	background-color:  rgb(119,66,141);
 }
 
 /*短的，没有内容预览的预言*/
 .prophecy-list{
 	font-size: 16px;
-	
+
 }
 .prophecy-list-item{
 	display: block;

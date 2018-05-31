@@ -9,7 +9,7 @@
             <div class="jumbotron-title">
                 未来是未知的，正是因为它未知，所以一切才可能成为可能。
             </div>
-            <button type="button" class="btn btn-lg btn-default  font-cherry">写下我的预言</button>
+            <a href="post"><button type="button" class="btn btn-lg btn-default  font-cherry">写下我的预言</button></a>
         </div>
     </div>
 
